@@ -118,8 +118,8 @@ export default function App() {
             <Route path="/calender" element={<MySchedule />} />
             <Route path="/my-events" element={<MySchedule />} />
             <Route path="/gmail-sync" element={<GmailSync />} />
-            <Route path="/Terms" element={<Terms />} />
-            <Route path="/Support" element={<Support />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/support" element={<Support />} />
           </Route>
         </Routes>
       </BrowserRouter>

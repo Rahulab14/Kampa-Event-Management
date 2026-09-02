@@ -18,8 +18,8 @@ export function Sidebar() {
   const navItems = [
     { name: "Overview", path: "/", icon: HomeIcon },
     { name: "My Calendar", path: "/calender", icon: CalendarDays },
-    { name: "Support", path: "/Support", icon: HelpCircle },
-    { name: "Terms & Conditions", path: "/Terms", icon: FileText },
+    { name: "Support", path: "/support", icon: HelpCircle },
+    { name: "Terms & Conditions", path: "/terms", icon: FileText },
   ];
 
   // Function to copy current URL to clipboard without popups
