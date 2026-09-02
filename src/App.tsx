@@ -111,16 +111,14 @@ export default function App() {
           ========================================== */}
       <BrowserRouter>
         <Routes>
-          <Route element={<DashboardLayout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/events/:id" element={<EventDetails />} />
-            <Route path="/calender" element={<MySchedule />} />
-            <Route path="/my-events" element={<MySchedule />} />
-            <Route path="/gmail-sync" element={<GmailSync />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/support" element={<Support />} />
-          </Route>
+          <Route path="/" element={<DashboardLayout><Home /></DashboardLayout>} />
+          <Route path="/events" element={<DashboardLayout><Events /></DashboardLayout>} />
+          <Route path="/events/:id" element={<DashboardLayout><EventDetails /></DashboardLayout>} />
+          <Route path="/calender" element={<DashboardLayout><MySchedule /></DashboardLayout>} />
+          <Route path="/my-events" element={<DashboardLayout><MySchedule /></DashboardLayout>} />
+          <Route path="/gmail-sync" element={<DashboardLayout><GmailSync /></DashboardLayout>} />
+          <Route path="/terms" element={<DashboardLayout><Terms /></DashboardLayout>} />
+          <Route path="/support" element={<DashboardLayout><Support /></DashboardLayout>} />
         </Routes>
       </BrowserRouter>
     </div>
