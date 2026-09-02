@@ -1,6 +1,6 @@
 import { 
   X, Calendar, Clock, MapPin, Users, CreditCard, Trophy, 
-  Star, Monitor, UserCheck, CheckCircle2, Share2, 
+  Star, Monitor, UserCheck,Share2, 
   ExternalLink, MessageCircle, FileText 
 } from "lucide-react";
 import type { Event } from "../../types/event";

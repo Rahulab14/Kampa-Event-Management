@@ -185,7 +185,7 @@ import {
   Code2, Terminal, Cpu, // Hackathon icons
   Wrench, Lightbulb, Compass, // Workshop icons
   Target, Rocket, Award, // Competition icons
-  Mic, MessagesSquare, Radio, // Seminar icons
+  Mic, MessagesSquare, // Seminar icons
   Sparkles, Hexagon // Default icons
 } from "lucide-react";
 import type { Event } from "../../types/event";
