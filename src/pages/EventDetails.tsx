@@ -1,4 +1,4 @@
-import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
   Calendar,
@@ -15,7 +15,6 @@ import {
 import type { Event } from "../types/event";
 
 export function EventDetails() {
-  const { id } = useParams<{ id: string }>();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -175,7 +174,7 @@ export function EventDetails() {
                 REGISTRATION FEE
               </p>
               <p className="mt-1 font-bold text-slate-900">
-                {formatCurrency(event.registrationFee)}
+                {formatCurrency(Number(event.registrationFee))}
               </p>
             </div>
           </div>
@@ -190,7 +189,7 @@ export function EventDetails() {
             <div>
               <p className="text-xs font-semibold text-slate-500">PRIZE POOL</p>
               <p className="mt-1 font-bold text-slate-900">
-                {formatCurrency(event.prizePool)}
+                {formatCurrency(Number(event.prizePool))}
               </p>
             </div>
           </div>

@@ -8,7 +8,7 @@ import {
   CalendarDays, ChevronDown, ServerCrash, 
   ChevronLeft, ChevronRight,
   SlidersHorizontal, Calendar, Tag, CheckCircle2,
-  Check, GraduationCap, Building2, Sparkles,
+  Check, GraduationCap, Building2,
   RotateCw
 } from "lucide-react";
 import logo from '../assets/kampa-bg.png';
