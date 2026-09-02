@@ -238,7 +238,7 @@ export function Terms() {
 
           {/* Support Link */}
           <a
-            href="/support"
+            href="/Support"
             className="
               inline-flex
               w-fit
