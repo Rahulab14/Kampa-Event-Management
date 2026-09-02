@@ -123,7 +123,7 @@ function convertToEvent(
 
     durationHours:
       Number(row.durationHours) ||
-      undefined,
+      0,
 
     teamSize:
       row.teamSize ||
