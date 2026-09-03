@@ -350,7 +350,7 @@ export function EventCard({ event, onViewDetails }: EventCardProps) {
           ) : (
             <div className="flex items-center gap-1.5 text-gray-600 bg-gray-50 px-2.5 py-1 rounded-md">
               <Trophy className="w-4 h-4 text-orange-500" strokeWidth={2.5} />
-              <span>{event.prizePool ? `₹${event.prizePool}` : "Free"}</span>
+              <span>{event.prizePool ? `₹${event.prizePool}` : "Available Soon"}</span>
             </div>
           )}
           
