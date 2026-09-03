@@ -22,11 +22,37 @@ export function Sidebar() {
     { name: "Terms & Conditions", path: "/terms", icon: FileText },
   ];
 
-  // Function to copy current URL to clipboard without popups
-  const handleShare = () => {
-    navigator.clipboard.writeText(window.location.href);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleShare = async () => {
+    const currentUrl = window.location.href;
+
+    const copyWithFallback = () => {
+        const textArea = document.createElement("textarea");
+        textArea.value = currentUrl;
+        textArea.setAttribute("readonly", "true");
+        textArea.style.position = "fixed";
+        textArea.style.opacity = "0";
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        textArea.remove();
+    };
+
+    try {
+      if (navigator.clipboard?.writeText) {
+        try {
+          await navigator.clipboard.writeText(currentUrl);
+        } catch {
+          copyWithFallback();
+        }
+      } else {
+        copyWithFallback();
+      }
+
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (error) {
+      console.error("Unable to copy page link:", error);
+    }
   };
 
   return (
