@@ -12,7 +12,7 @@ interface EventModalProps {
 }
 
 function formatCurrency(value?: number | string) {
-  if (!value || value === 0 || value === "0") return "Free";
+  if (!value || value === 0 || value === "0") return "Available Soon";
   const num = Number(value);
   return isNaN(num) ? String(value) : `₹${num.toLocaleString("en-IN")}`;
 }

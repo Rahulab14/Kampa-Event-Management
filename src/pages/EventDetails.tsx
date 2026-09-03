@@ -50,7 +50,7 @@ export function EventDetails() {
   };
 
   const formatCurrency = (value?: number) => {
-    if (!value || value === 0) return "Free";
+    if (!value || value === 0) return "Available Soon";
     return `₹${value.toLocaleString("en-IN")}`;
   };
 
