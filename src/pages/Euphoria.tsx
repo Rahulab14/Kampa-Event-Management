@@ -1678,7 +1678,7 @@ const illustrations = [ill1, ill2, ill3, ill4, ill5, ill6, ill7, ill8, ill9];
 // API CONFIG
 // ======================================================
 
-const API_URL = import.meta.env.VITE_Euphoria_API_URL;
+const API_URL = import.meta.env.VITE_Euphoria_API_URL?.trim();
 
 // ======================================================
 // EVENT TYPE
