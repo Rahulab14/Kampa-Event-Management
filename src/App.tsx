@@ -10,6 +10,7 @@ import { GmailSync } from "./pages/GmailSync";
 import { MySchedule } from "./pages/MySchedule";
 import { Support } from "./pages/Support";
 import { Terms } from "./pages/Terms";
+import { Euphoria } from "./pages/Euphoria";
 
 // SVG Path Data for Kampa Logo
 const LOGO_PATHS = [
@@ -114,7 +115,10 @@ export default function App() {
           <Route path="/" element={<DashboardLayout><Home /></DashboardLayout>} />
           <Route path="/events" element={<DashboardLayout><Events /></DashboardLayout>} />
           <Route path="/events/:id" element={<DashboardLayout><EventDetails /></DashboardLayout>} />
-          <Route path="/calender" element={<DashboardLayout><MySchedule /></DashboardLayout>} />
+          <Route path="/calender" element={<DashboardLayout><MySchedule /></DashboardLayout>}
+           />
+          <Route path="/euphoria" element={<DashboardLayout><Euphoria /></DashboardLayout>} />
+
           <Route path="/my-events" element={<DashboardLayout><MySchedule /></DashboardLayout>} />
           <Route path="/gmail-sync" element={<DashboardLayout><GmailSync /></DashboardLayout>} />
           <Route path="/terms" element={<DashboardLayout><Terms /></DashboardLayout>} />

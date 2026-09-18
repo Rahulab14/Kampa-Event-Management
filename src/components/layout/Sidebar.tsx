@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { 
   Home as HomeIcon, 
   CalendarDays, 
+  Tickets,
   HelpCircle,
   Link as LinkIcon,
   Check,
@@ -11,12 +12,60 @@ import {
 import { cn } from "../../utils/cn";
 import image from '../../assets/logo2.png';
 
+/* Comic-style burst badge matching the reference image */
+function ComicNewBadge({ className }: { className?: string }) {
+  return (
+    <div className={cn("relative inline-flex items-center justify-center select-none pointer-events-none", className)}>
+      <svg
+        viewBox="0 0 100 80"
+        className="w-full h-full drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] overflow-visible"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {/* Yellow comic burst body */}
+        <path
+          d="M50 3 
+             C56 12, 65 14, 76 6 
+             C74 18, 83 23, 96 22 
+             C89 31, 92 41, 98 50 
+             C86 52, 82 62, 80 73 
+             C70 67, 59 71, 52 78 
+             C47 69, 36 68, 25 74 
+             C27 63, 20 54, 4 52 
+             C14 43, 13 32, 2 24 
+             C15 23, 22 15, 22 4 
+             C31 12, 41 11, 50 3 Z"
+          fill="#FACC15"
+          stroke="#000000"
+          strokeWidth="3.5"
+          strokeLinejoin="round"
+          strokeLinecap="round"
+        />
+        {/* Comic pop action lines */}
+        <path d="M82 7 L90 1" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M88 12 L96 7" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M96 35 L104 33" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M95 41 L103 43" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M22 72 L14 78" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M27 77 L21 84" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M5 38 L-2 37" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M6 44 L-1 46" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" />
+      </svg>
+      {/* Made the "NEW" text smaller here */}
+      <span className="absolute font-black text-[7px] tracking-tight text-black italic uppercase -rotate-6">
+        NEW
+      </span>
+    </div>
+  );
+}
+
 export function Sidebar() {
   const [copied, setCopied] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
 
   const navItems = [
     { name: "Overview", path: "/", icon: HomeIcon },
+    { name: "Euphoria Event", path: "/euphoria", icon: Tickets, isNew: true },
     { name: "My Calendar", path: "/calender", icon: CalendarDays },
     { name: "Support", path: "/support", icon: HelpCircle },
     { name: "Terms & Conditions", path: "/terms", icon: FileText },
@@ -26,15 +75,15 @@ export function Sidebar() {
     const currentUrl = window.location.href;
 
     const copyWithFallback = () => {
-        const textArea = document.createElement("textarea");
-        textArea.value = currentUrl;
-        textArea.setAttribute("readonly", "true");
-        textArea.style.position = "fixed";
-        textArea.style.opacity = "0";
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand("copy");
-        textArea.remove();
+      const textArea = document.createElement("textarea");
+      textArea.value = currentUrl;
+      textArea.setAttribute("readonly", "true");
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      textArea.remove();
     };
 
     try {
@@ -103,7 +152,7 @@ export function Sidebar() {
               title={collapsed ? item.name : undefined}
               className={({ isActive }) =>
                 cn(
-                  "flex items-center py-3.5 rounded-full transition-all duration-300",
+                  "relative flex items-center py-3.5 rounded-full transition-all duration-300",
                   collapsed ? "justify-center px-0" : "gap-4 px-5",
                   isActive 
                     ? "bg-black text-white shadow-md translate-x-1" 
@@ -116,6 +165,14 @@ export function Sidebar() {
                 <span className="font-medium text-sm whitespace-nowrap overflow-hidden transition-opacity duration-200">
                   {item.name}
                 </span>
+              )}
+              {item.isNew && (
+                <ComicNewBadge 
+                  className={cn(
+                    "absolute w-7 h-5",
+                    collapsed ? "-top-1.5 right-1.5" : "-top-2 right-2"
+                  )} 
+                />
               )}
             </NavLink>
           ))}
@@ -203,7 +260,7 @@ export function Sidebar() {
                 to={item.path}
                 className={({ isActive }) =>
                   cn(
-                    "p-3 rounded-full transition-all duration-300",
+                    "relative p-3 rounded-full transition-all duration-300",
                     isActive 
                       ? "bg-black text-white shadow-md scale-110 -translate-y-1" 
                       : "text-gray-400 hover:text-black hover:bg-gray-100"
@@ -211,6 +268,10 @@ export function Sidebar() {
                 }
               >
                 <item.icon className="w-5 h-5" />
+                {/* Replaced full badge with just the yellow dot for mobile */}
+                {item.isNew && (
+                  <span className="absolute top-2.5 right-2.5 w-2.5 h-2.5 bg-[#FACC15] border-2 border-white rounded-full"></span>
+                )}
               </NavLink>
             ))}
           </div>
@@ -237,7 +298,7 @@ export function Sidebar() {
                 to={item.path}
                 className={({ isActive }) =>
                   cn(
-                    "p-3 rounded-full transition-all duration-300",
+                    "relative p-3 rounded-full transition-all duration-300",
                     isActive 
                       ? "bg-black text-white shadow-md scale-110 -translate-y-1" 
                       : "text-gray-400 hover:text-black hover:bg-gray-100"
@@ -245,6 +306,10 @@ export function Sidebar() {
                 }
               >
                 <item.icon className="w-5 h-5" />
+                {/* Replaced full badge with just the yellow dot for mobile */}
+                {item.isNew && (
+                  <span className="absolute top-2.5 right-2.5 w-2.5 h-2.5 bg-[#FACC15] border-2 border-white rounded-full"></span>
+                )}
               </NavLink>
             ))}
           </div>
