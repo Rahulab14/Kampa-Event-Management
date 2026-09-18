@@ -23,7 +23,7 @@
 // // APPS SCRIPT API
 // // ======================================================
 
-// const API_URL = import.meta.env.EUPHORIA_API_URL;
+// const API_URL = import.meta.env.VITE_EUPHORIA_API_URL;
 
 
 // // ======================================================
@@ -457,7 +457,7 @@
 //       if (!API_URL) {
 
 //         throw new Error(
-//           "EUPHORIA_API_URL is missing "
+//           "VITE_EUPHORIA_API_URL is missing "
 //         );
 
 //       }
@@ -1678,7 +1678,7 @@ const illustrations = [ill1, ill2, ill3, ill4, ill5, ill6, ill7, ill8, ill9];
 // API CONFIG
 // ======================================================
 
-const API_URL = import.meta.env.EUPHORIA_API_URL?.trim();
+const API_URL = import.meta.env.VITE_EUPHORIA_API_URL?.trim();
 
 // ======================================================
 // EVENT TYPE
@@ -2188,7 +2188,7 @@ function Euphoria() {
       setError("");
 
       if (!API_URL) {
-        throw new Error("EUPHORIA_API_URL is missing from your .env file.");
+        throw new Error("VITE_EUPHORIA_API_URL is missing from your .env file.");
       }
 
       const separator = API_URL.includes("?") ? "&" : "?";
